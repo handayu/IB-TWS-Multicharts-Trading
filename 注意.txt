@@ -21,4 +21,4 @@ multicharts；
 8.因为MT4中是不提供tick数据的，对于很多策略来说，最精细的行情也只能做Minute下的回测，但是对于IB和onada的行情，可以获取到tick数据，所以对于
 一些策略来说，可以在IB和oanada 提供了Tick数据的基础上完成很多策略的精细回测；
 
-9.
+9.MultiCharts 和 MultiCharts.NET 是两个不同的软件。前者是用 PowerLanguage (EasyLanguage) 语言，后者是用 C# 或 VB.NET 语言。两者所开发的程序，无法给另一个使用。
