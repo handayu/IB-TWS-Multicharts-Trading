@@ -9,3 +9,14 @@ C:\Users\Administrator\Desktop\DDE-Simple\DDE-Simple\DDClient\obj\Debug\DDClient
 C:\Users\Administrator\Desktop\DDE-Simple\DDE-Simple\DDClient\obj\Debug\DDClient.csproj.CopyComplete
 C:\Users\Administrator\Desktop\DDE-Simple\DDE-Simple\DDClient\obj\Debug\DDClient.exe
 C:\Users\Administrator\Desktop\DDE-Simple\DDE-Simple\DDClient\obj\Debug\DDClient.pdb
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\bin\Debug\DDClient.exe
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\bin\Debug\DDClient.pdb
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\bin\Debug\NDde.dll
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.Form1.resources
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.Properties.Resources.resources
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.csproj.CopyComplete
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.exe
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\DDE及进程间通信专题\DDE-Simple\DDClient\obj\Debug\DDClient.pdb

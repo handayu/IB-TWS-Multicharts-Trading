@@ -12,7 +12,7 @@ namespace DDEServer
 {
     public partial class Form1 : Form
     {
-        private MyDDEServer m_server = null;
+        private DDEServer m_server = null;
 
         public Form1()
         {
@@ -24,16 +24,7 @@ namespace DDEServer
             try
             {
                 //申明并实例化一个DdeClient对象 
-                m_server = new MyDDEServer("M");
-                m_server.Register();
-                
-
-                for (int i = 0; i < 100000; i++)
-                {
-                    m_server.Advise("BID", "USDJPY");
-                    System.Threading.Thread.Sleep(1000);
-                }
-
+                m_server = new DDEServer("MT4");
             }
             catch (Exception ex)
             {

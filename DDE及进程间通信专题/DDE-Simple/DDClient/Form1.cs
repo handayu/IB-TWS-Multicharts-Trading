@@ -25,7 +25,7 @@ namespace DDClient
             try
             {
                 //申明并实例化一个DdeClient对象 
-                client = new DdeClient("M", "BID", this);
+                client = new DdeClient("MT4", "BID", this);
                 client.Advise += client_Advise;
                 //连接到DDE服务器 
                 client.Connect();
