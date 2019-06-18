@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\OuterTrading\bin\Debug\OuterTrading.exe.config
+C:\Users\Administrator\Desktop\OuterTrading\bin\Debug\OuterTrading.exe
+C:\Users\Administrator\Desktop\OuterTrading\bin\Debug\OuterTrading.pdb
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.Form1.resources
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.Properties.Resources.resources
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.exe
+C:\Users\Administrator\Desktop\OuterTrading\obj\Debug\OuterTrading.pdb
