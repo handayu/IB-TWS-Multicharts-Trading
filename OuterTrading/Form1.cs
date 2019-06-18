@@ -162,6 +162,8 @@ namespace OuterTrading
 
                 ClearTxt(this.textBox_Path.Text);
 
+                m_lastTxtSingleInfo = "";
+
                 this.timer1.Enabled = true;
                 this.timer1.Start();
 
@@ -236,7 +238,7 @@ namespace OuterTrading
             try
             {
                 //设置文件共享方式为读写，FileShare.ReadWrite，这样的话，就可以打开了
-                FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Write, FileShare.ReadWrite);
                 fs.SetLength(0);
             }
             catch (Exception ex)

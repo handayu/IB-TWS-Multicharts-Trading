@@ -13,7 +13,6 @@ namespace OuterTrading
         private static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, string lParam);
         private const int WM_SETTEXT = 0x000C;
 
-
         [DllImport("user32.dll", EntryPoint = "SendMessageA")]
         private static extern int SendMessage(IntPtr hwnd, int wMsg, int wParam, StringBuilder lParam);
         private int WM_GETTEXT = 0x0D;
@@ -38,6 +37,5 @@ namespace OuterTrading
         {
             SendMessage(handle, WM_CLICK, (IntPtr)0, "0");
         }
-
     }
 }
