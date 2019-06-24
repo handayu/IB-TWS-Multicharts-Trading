@@ -24,4 +24,14 @@ DefineDLLFunc: "Dll1.dll", double, "Add", double, double;
 
 It can be another language other than c++. It depends if the dll is managed or unmanaged. For C# you would need a wrapper.
 
+If you do not specify the path to the dll then the script will search for it in the MultiCharts folder
+
+32 bit: C:\Program Files (x86)\TS Support\MultiCharts
+64 bit: C:\Program Files\TS Support\MultiCharts64
+Either the DLL is not located in MultiCharts folder or you don’t indicate a full path to the DLL in the script.
+
+If you specify the path to the dll then the script will search for it in the specified folder.
+
+1.另外英文MC-普通版并没有限制file文本输出，可以用文件形式引用MC本身不具有的Order-API进行交互，或者引用外部DLL(C++)进行交互；
+2.另外英文mc.net版本支持全面的.net 和visual-studio对接，可以和任何外部进程进行交互，不再有普通版PL语言的限制；
 
