@@ -1,0 +1,27 @@
+https://www.multicharts.com/discussion/viewtopic.php?f=1&t=51758&p=131303&hilit=call+dll#p131303
+
+Right, C# does not work with Multicharts. Probably it will work with Multicharts.net, but I am not sure about this,
+Using Visual Studio 2017 with a C++ compiler and C-syntax the following code works.
+
+__declspec(dllexport) double __cdecl Add(double x, double y)
+   {
+      double erg = 0.0;
+      erg = x + y;
+      return (erg);
+   }
+
+   __declspec(dllexport) double __cdecl Subtract(double x, double y)
+   {
+      return (x - y);
+   }
+
+}
+
+in PLE:
+CODE: SELECT ALL
+
+DefineDLLFunc: "Dll1.dll", double, "Add", double, double;
+
+It can be another language other than c++. It depends if the dll is managed or unmanaged. For C# you would need a wrapper.
+
+
