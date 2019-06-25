@@ -47,15 +47,7 @@
             this.textBox_SellHandle = new System.Windows.Forms.TextBox();
             this.button_SendBuy = new System.Windows.Forms.Button();
             this.button_SendSell = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox_Path = new System.Windows.Forms.TextBox();
-            this.button_Start = new System.Windows.Forms.Button();
-            this.button_Stop = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -211,84 +203,15 @@
             this.button_SendSell.UseVisualStyleBackColor = true;
             this.button_SendSell.Click += new System.EventHandler(this.Button_SendSell_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(2, 1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(364, 163);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "星空联盟";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.richTextBox1);
-            this.groupBox2.Controls.Add(this.button_Stop);
-            this.groupBox2.Controls.Add(this.button_Start);
-            this.groupBox2.Controls.Add(this.textBox_Path);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(2, 166);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(364, 176);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Multicharts-FileReader";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Txt-Path:";
-            // 
-            // textBox_Path
-            // 
-            this.textBox_Path.Location = new System.Drawing.Point(76, 19);
-            this.textBox_Path.Name = "textBox_Path";
-            this.textBox_Path.Size = new System.Drawing.Size(149, 21);
-            this.textBox_Path.TabIndex = 5;
-            // 
-            // button_Start
-            // 
-            this.button_Start.Location = new System.Drawing.Point(231, 19);
-            this.button_Start.Name = "button_Start";
-            this.button_Start.Size = new System.Drawing.Size(49, 23);
-            this.button_Start.TabIndex = 13;
-            this.button_Start.Text = "开启";
-            this.button_Start.UseVisualStyleBackColor = true;
-            this.button_Start.Click += new System.EventHandler(this.Button_Start_Click);
-            // 
-            // button_Stop
-            // 
-            this.button_Stop.Location = new System.Drawing.Point(302, 19);
-            this.button_Stop.Name = "button_Stop";
-            this.button_Stop.Size = new System.Drawing.Size(49, 23);
-            this.button_Stop.TabIndex = 14;
-            this.button_Stop.Text = "关闭";
-            this.button_Stop.UseVisualStyleBackColor = true;
-            this.button_Stop.Click += new System.EventHandler(this.Button_Stop_Click);
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.Timer_Event);
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 54);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(338, 96);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 341);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(350, 163);
             this.Controls.Add(this.button_SendSell);
             this.Controls.Add(this.button_SendBuy);
             this.Controls.Add(this.textBox_SellHandle);
@@ -307,11 +230,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "外盘Hooker";
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,14 +257,7 @@
         private System.Windows.Forms.TextBox textBox_SellHandle;
         private System.Windows.Forms.Button button_SendBuy;
         private System.Windows.Forms.Button button_SendSell;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button_Stop;
-        private System.Windows.Forms.Button button_Start;
-        private System.Windows.Forms.TextBox textBox_Path;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

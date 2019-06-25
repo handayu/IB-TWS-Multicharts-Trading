@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\bin\Debug\SendBuy.exe
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\bin\Debug\SendBuy.exe.config
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\obj\Debug\SendBuy.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\obj\Debug\SendBuy.exe
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\obj\Debug\SendBuy.pdb
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\bin\Debug\SendBuy.pdb
+C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\obj\Debug\SendBuy.csprojAssemblyReference.cache
