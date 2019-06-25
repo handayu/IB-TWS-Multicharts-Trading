@@ -1,0 +1,174 @@
+https://www.multicharts.com/discussion/viewtopic.php?f=1&t=51758&p=131303&hilit=call+dll#p131303
+
+Right, C# does not work with Multicharts. Probably it will work with Multicharts.net, but I am not sure about this,
+Using Visual Studio 2017 with a C++ compiler and C-syntax the following code works.
+
+__declspec(dllexport) double __cdecl Add(double x, double y)
+   {
+      double erg = 0.0;
+      erg = x + y;
+      return (erg);
+   }
+
+   __declspec(dllexport) double __cdecl Subtract(double x, double y)
+   {
+      return (x - y);
+   }
+
+}
+
+in PLE:
+CODE: SELECT ALL
+
+DefineDLLFunc: "Dll1.dll", double, "Add", double, double;
+
+It can be another language other than c++. It depends if the dll is managed or unmanaged. For C# you would need a wrapper.
+
+If you do not specify the path to the dll then the script will search for it in the MultiCharts folder
+
+32 bit: C:\Program Files (x86)\TS Support\MultiCharts
+64 bit: C:\Program Files\TS Support\MultiCharts64
+Either the DLL is not located in MultiCharts folder or you don’t indicate a full path to the DLL in the script.
+
+If you specify the path to the dll then the script will search for it in the specified folder.
+
+1.另外英文MC-普通版并没有限制file文本输出，可以用文件形式引用MC本身不具有的Order-API进行交互，或者引用外部DLL(C++)进行交互(最好使用低版本的Visual-studio08 2010)；
+  Multicharts_Dll-master.Zip是一个完整的实例，可以使用。用vs2010编译。  
+
+2.另外英文mc.net版本支持全面的.net 和visual-studio对接，可以和任何外部进程进行交互，不再有普通版PL语言的限制；
+
+3.另外可以直接引用windows的API，例如；use32.dll,kerner.dll,shell32.dll 如下：
+  //------------------------------------------------------------------------------
+// declare ShellExecuteA
+
+DEFINEDLLFUNC: "shell32.dll", int, "ShellExecuteA",
+    INT, // HWND
+    LPSTR, // lpOperation,
+    LPSTR, // lpFile,
+    LPSTR, // lpDirectory, 
+    LPSTR,   // nShowCmd
+    INT;
+    
+ 
+ 
+ DEFINEDLLFUNC: "C:\Users\Administrator\Desktop\MyDll.dll",  int, "jAdd", int, int; 
+
+//------------------------------------------------------------------------------
+
+if LastBarOnChart then begin   
+	//ShellExecuteA(0, "open", "C:\Users\Administrator\Desktop\IB-TWS-Multicharts-Trading\SendBuy\bin\Debug\SendBuy.exe", "B 600000 17.21 100", "0", 3);
+
+       print(jAdd(1,2));
+
+end;
+用shell32.dll打开脚本，文件，或者浏览器，或者脚本执行任务。该例子可用
+
+
+4。DLL中导出函数的声明有两种方式：一种为在函数声明中加上__declspec(dllexport)，这里不再举例说明；另外一种方式是采用模块定义(.def) 文件声明，.def文件为链接器提供了有关被链接程序的导出、属性及其他方面的信息。
+
+首先创建 一个DLL程序，.cpp中
+int __stdcall Add(int numa, int numb)
+{
+       return (numa + numb);
+}
+ 
+int __stdcall Sub(int numa, int numb)
+{
+        return (numa - numb);
+}
+然后创建一个.def的文件，在里面加上
+
+;DllTestDef.lib : 导出DLL函数
+;作者：----
+LIBRARY DllTestDef
+EXPORTS 
+Add @ 1
+Sub @ 2
+最后创建一个测试程序：.cpp文件如下：
+#include <iostream>
+#include <windows.h>
+using namespace std;
+ 
+typedef int (__stdcall *FUN)(int, int);
+HINSTANCE hInstance;
+FUN   fun;
+ 
+int main()
+{
+       hInstance = LoadLibrary("DLLTestDef.dll");
+       if(!hInstance)
+           cout << "Not Find this Dll" << endl;
+       fun = (FUN)GetProcAddress(hInstance, MAKEINTRESOURCE(1));
+       if (!fun)
+       {
+              cout << "not find this fun" << endl;
+       }
+       cout << fun(1, 2) << endl;
+       FreeLibrary(hInstance);
+       return 0;
+}
+说明：
+.def文件的规则为：
+　　(1)LIBRARY语句说明.def文件相应的DLL；
+　　(2)EXPORTS语句后列出要导出函数的名称。可以在.def文件中的导出函数名后加@n，表示要导出函数的序号为n（在进行函数调用时，这个序号将发挥其作用）；
+　　(3).def 文件中的注释由每个注释行开始处的分号 (;) 指定，且注释不能与语句共享一行。
+
+模块定义文件 免费编辑 添加义项名
+B 添加义项 ?
+所属类别 : 其他
+模块定义 (.def) 文件为链接器提供有关被链接程序的导出、属性及其他方面的信息。生成 DLL 时，.def 文件最有用。由于存在可代替模块定义语句使用的链接器选项，通常不需要 .def 文件。也可以将 __declspec(dllexport) 用作指定导出函数的手段。在链接器阶段可以使用 /DEF(指定模块定义文件)链接器选项调用 .def 文件。如果生成的 .exe 文件没有导出，使用 .def 文件将使输出文件较大并降低加载速度。
+
+基本信息
+中文名称
+模块定义文件
+
+外文名称
+ (.def) 
+
+ 
+意义
+提供有关被链接程序的导出
+
+位置
+VC++
+
+目录
+1通俗解释
+2定义格式
+折叠编辑本段通俗解释
+在VC++中，生成DLL可以不使用.def文件。只需要在VC++的函数定义前要加__declspec(dllexport)修饰就可以了。但是使用__declspec(dllexport)和使用.def文件是有区别的。如果DLL是提供给VC++用户使用的，你只需要把编译DLL时产生的.lib提供给用户，它可以很轻松地调用你的DLL。但是如果你的DLL是供其他程序如VB、delphi,以及.NET用户使用的，那么会产生一个小麻烦。因为VC++对于__declspec(dllexport)声明的函数会对函数名尾附加函数在DLL中的地址，如下面的函数:
+
+__declspec(dllexport) int __stdcallIsWinNT()
+
+会转换为IsWinNT@0，这样你在VB中必须这样声明:
+
+Declare Function IsWinNT Lib "my.dll" Alias "IsWinNT@0" () As Long
+
+@的后面的数由于参数类型不同而可能不同。这显然不太方便。所以如果要想避免这种转换，就要使用.def文件方式。
+
+EXPORTS后面的数可以不给，系统会自动分配一个数。对于VB、PB、Delphi用户，通常使用按名称进行调用的方式，这个数关系不大，但是对于使用.lib链接的VC程序来说，不是按名称进行调用，而是按照这个数进行调用的，所以最好给出。
+
+除了.def的解决方案外，还可以原样编译:
+
+折叠编辑本段定义格式
+.def 文件中的第一条 LIBRARY 语句不是必须的，但LIBRARY 语句后面的 DLL 的名称必须正确，即与生成的动态链接库的名称必须匹配。此语句将 .def 文件标识为属于 DLL。链接器将此名称放到 DLL 的导入库中。
+
+EXPORTS 语句列出名称，可能的话还会列出 DLL 导出函数的序号值。通过在函数名的后面加上 @ 符和一个数字，给函数分配序号值。当指定序号值时，序号值的范围必须是从 1 到 N，其中 N 是 DLL 导出函数的个数。
+
+LIBRARY BTREE
+
+EXPORTS
+
+Insert @1
+
+Delete @2
+
+Member @3
+
+Min @4
+
+如果使用 MFC DLL 向导创建 MFC DLL，则向导将为您创建主干 .def 文件并将其自动添加到项目中。添加要导出到此文件的函数名。对于非 MFC DLL，必须亲自创建 .def 文件并将其添加到项目中。
+
+如果导出 C++ 文件中的函数，必须将修饰名放到 .def 文件中，或者通过使用外部"C"定义具有标准 C 链接的导出函数。如果需要将修饰名放到 .def 文件中，则可以通过使用 DUMPBIN 工具或 /MAP 链接器选项来获取修饰名。请注意，编译器产生的修饰名是编译器特定的。如果将 Visual C++ 编译器产生的修饰名放到 .def 文件中，则链接到 DLL 的应用程序必须也是用相同版本的 Visual C++ 生成的，这样调用应用程序中的修饰名才能与 DLL 的 .def 文件中的导出名相匹配。
+
+词条标签： 计算机
